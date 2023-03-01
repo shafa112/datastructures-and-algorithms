@@ -9,9 +9,9 @@ Middle Node
  */
 public class LinkedList {
 
-    Node head;
+    public Node head;
 
-    void insertAtEnd(int data) {
+    public void insertAtEnd(int data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
@@ -22,7 +22,7 @@ public class LinkedList {
         }
     }
 
-    void delete(int data) {
+    public void delete(int data) {
         {
             if (head.data == data) {
                 head = head.next;
@@ -38,7 +38,7 @@ public class LinkedList {
         }
     }
 
-    void traverse() {
+    public void traverse() {
         Node t = head;
         while (t != null) {
             System.out.print(t.data + "-> ");
@@ -46,7 +46,8 @@ public class LinkedList {
         }
     }
 
-    Node reverse(Node node) {
+    public Node reverse(Node node) {
+
         if(node.next == null) return node;
         Node n = node;
         Node t = reverse(n.next);
@@ -55,7 +56,8 @@ public class LinkedList {
         return node;
     }
 
-    void reverseIterative() {
+    public Node reverseIterative() {
+        if(head==null) return null;
         Node t1 = head, t2 = head.next;
         Node temp = null;
         while(t2 != null) {
@@ -69,9 +71,10 @@ public class LinkedList {
         }
         head.next = null;
         head = t1;
+        return head;
     }
 
-    Node getMid() {
+    public Node getMid() {
         Node slow = head, fast = head;
         while(fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
@@ -87,19 +90,19 @@ public class LinkedList {
         l.insertAtEnd(1);
         l.insertAtEnd(3);
         //l.delete(1);
-        l.insertAtEnd(5);
-        l.insertAtEnd(6);
+        //l.insertAtEnd(5);
+        //l.insertAtEnd(6);
         //l.delete(3);
         l.traverse();
-        /*
+
         Node n = l.reverse(l.head);
         n.next=null;
         System.out.println();
-        l.traverse();*/
-        System.out.println();
+        l.traverse();
+        /*System.out.println();
         System.out.println(l.getMid().data);
         l.reverseIterative();
         System.out.println();
-        l.traverse();
+        l.traverse();*/
     }
 }
