@@ -13,44 +13,44 @@ import java.util.Arrays;
 public class MergeSort {
 
     public void mergeSort(int[] a, int start, int end) {
-        if(start<end) {
-            int mid = (start+end)/2;
-            mergeSort(a,start,mid);
-            mergeSort(a,mid+1,end);
-            merge(a,start,end,mid);
+        if (start < end) {
+            int mid = (start + end) / 2;
+            mergeSort(a, start, mid);
+            mergeSort(a, mid + 1, end);
+            merge(a, start, end, mid);
         }
     }
 
     public void merge(int[] a, int start, int end, int mid) {
         int i = start;
-        int j = mid+1;
-        int k=0;
-        int[] c = new int[end-start+1];
+        int j = mid + 1;
+        int k = 0;
+        int[] c = new int[end - start + 1];
 
-        while(i<=mid && j<=end) {
-            if(a[i]<=a[j]) {
-                c[k]=a[i];
+        while (i <= mid && j <= end) {
+            if (a[i] <= a[j]) {
+                c[k] = a[i];
                 ++i;
             } else {
-                c[k]=a[j];
+                c[k] = a[j];
                 ++j;
             }
             ++k;
         }
 
-        while(i<=mid) {
-            c[k]=a[i];
+        while (i <= mid) {
+            c[k] = a[i];
             ++i;
             ++k;
         }
 
-        while(j<=end) {
-            c[k]=a[j];
+        while (j <= end) {
+            c[k] = a[j];
             ++j;
             ++k;
         }
 
-         k=0;
-         for(i=start;i<=end;++i)a[i]=c[k++];
+        k = 0;
+        for (i = start; i <= end; ++i) a[i] = c[k++];
     }
 }

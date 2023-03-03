@@ -4,13 +4,23 @@ import java.util.Arrays;
 
 public class CountingSort {
 
+    /*
+     * Counting sort is a sorting technique based on keys between a specific range.
+     * It works by counting the number of objects having distinct key values (kind of hashing).
+     *
+     * Complexity : O(n)
+     */
+    //todo: check for big integer values; check for negative integers
+
     public void countingSort(int[] a) {
-        int countArraySize=max(a)+1;
+        int min=min(a);
+        int countArraySize=max(a)-min+1;
         int[] count = new int[countArraySize];
         for(int i = 0; i < a.length; ++i) {
-            ++count[a[i]];
+            ++count[a[i]-min];
         }
         System.out.println("Count array: "+Arrays.toString(count));
+        System.out.println("Count array size: "+count.length);
 
         for(int i = 1; i < count.length; ++i) {
             count[i] += count[i-1];
@@ -19,8 +29,8 @@ public class CountingSort {
 
         int[] output = new int[a.length];
         for(int i = 0; i < a.length; ++i) {
-            int index = count[a[i]]-1;
-            count[a[i]]--;
+            int index = count[a[i]-min]-1;
+            count[a[i]-min]--;
             output[index] = a[i];
         }
         System.out.println("output array: "+Arrays.toString(output));
@@ -35,11 +45,19 @@ public class CountingSort {
         return max;
     }
 
+    public int min(int[] a) {
+        int min=a[0];
+        for(int i = 1; i < a.length; ++i) {
+            if(min>a[i])min=a[i];
+        }
+        return min;
+    }
+
     public static void main(String[] args) {
+        //int [] a = {63,56,80,63,50,75};
         int [] a = {8,4,2,2,8,3,3,1};
         System.out.println("Unsorted array: "+Arrays.toString(a));
         CountingSort countingSort= new CountingSort();
         countingSort.countingSort(a);
-
     }
 }

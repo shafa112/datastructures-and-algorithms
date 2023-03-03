@@ -11,15 +11,15 @@ public class SelectionSort {
      * Worst Case Time Complexity : O(n2)
      */
     public void selectionSort(int[] a) {
-        for(int i=0; i<a.length-1; ++i) {
-            int minIndex=i;
-            for(int j=i+1; j<a.length; ++j) {
-                if(a[minIndex]>a[j]){
-                    minIndex=j;
+        for (int i = 0; i < a.length - 1; ++i) {
+            int minIndex = i;
+            for (int j = i + 1; j < a.length; ++j) {
+                if (a[minIndex] > a[j]) {
+                    minIndex = j;
                 }
             }
             int temp = a[minIndex];
-            a[minIndex]=a[i];
+            a[minIndex] = a[i];
             a[i] = temp;
             System.out.println(Arrays.toString(a));
         }
