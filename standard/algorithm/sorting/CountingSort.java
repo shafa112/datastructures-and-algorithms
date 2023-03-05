@@ -10,7 +10,7 @@ public class CountingSort {
      *
      * Complexity : O(n)
      */
-    //todo: check for big integer values; check for negative integers
+    //todo: check for negative integers
 
     public void countingSort(int[] a) {
         int min=min(a);
