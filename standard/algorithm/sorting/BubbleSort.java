@@ -4,7 +4,7 @@ public class BubbleSort {
 
     /*
      * In bubble sort largest element in pushed to bottom in each iteration
-     * Best-case performance	O(n)
+     * Best-case performance	O(n) with the swapFlag
      * Average performance	 O(n2) // compares O(n2) and swaps O(n2)
      * Worst-case performance	 O(n2)
      *

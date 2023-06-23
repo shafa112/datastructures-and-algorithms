@@ -30,6 +30,7 @@ public class CountingSort {
         int[] output = new int[a.length];
         for(int i = 0; i < a.length; ++i) {
             int index = count[a[i]-min]-1;
+            System.out.println("index: "+index);
             count[a[i]-min]--;
             output[index] = a[i];
         }
@@ -54,10 +55,10 @@ public class CountingSort {
     }
 
     public static void main(String[] args) {
-        //int [] a = {63,56,80,63,50,75};
+        int [] b = {2,5,3,5,4};
         int [] a = {8,4,2,2,8,3,3,1};
-        System.out.println("Unsorted array: "+Arrays.toString(a));
+        System.out.println("Unsorted array: "+Arrays.toString(b));
         CountingSort countingSort= new CountingSort();
-        countingSort.countingSort(a);
+        countingSort.countingSort(b);
     }
 }

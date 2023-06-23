@@ -47,7 +47,7 @@ public class QuickSort {
         return pIndex;
     }
 
-    //Copied from net
+    // Copied from net
     // pivot=last element, passes all test cases of gfg
     int partition2(int[] array, int low, int high) {
 
