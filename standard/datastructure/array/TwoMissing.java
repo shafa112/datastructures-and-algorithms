@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /*
 * 2 numbers are missing from 1 to n
-* ex. {3,6,1,2}, missing: 3,5
+* ex. {4,6,1,2}, missing: 3,5
 *
 * Method 1: with hashmap - space and time both O(n)
 * Method 2: 2 equation, 2 variable

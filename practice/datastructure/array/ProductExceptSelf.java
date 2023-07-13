@@ -8,7 +8,8 @@ public class ProductExceptSelf {
         int[] a = {2,4,5,3,10};
         int[] b = {2,4,3,5};
         int[] c = {9,0,-2};
-        productExceptSelf(c);
+        productExceptSelf(a);
+
     }
 
     private static void productExceptSelf(int[] a) {
@@ -23,6 +24,6 @@ public class ProductExceptSelf {
             ans[i]*=post;
             post*=a[i];
         }
-
+        System.out.println(Arrays.toString(ans));
     }
 }

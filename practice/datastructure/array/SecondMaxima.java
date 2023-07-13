@@ -17,6 +17,7 @@ public class SecondMaxima {
                 max1 = a[i];
             } else if (a[i] > max2) max2 = a[i];
         }
+
         return max2;
     }
 }

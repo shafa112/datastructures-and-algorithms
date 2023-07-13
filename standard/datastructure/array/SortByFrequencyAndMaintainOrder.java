@@ -6,8 +6,10 @@ public class SortByFrequencyAndMaintainOrder {
 
     public static void main(String[] args) {
         Integer[]  a = {2,5,2,8,5,6,8,8};
+        int[] c = {2,5,2,8,5,6,8,8};
         SortByFrequencyAndMaintainOrder s = new SortByFrequencyAndMaintainOrder();
         s.sortByFrequencyAndMaintainOrder1(a);
+        //sortByFrequencyAndMaintainOrder(c);
     }
 
     class Pair{
@@ -40,7 +42,7 @@ public class SortByFrequencyAndMaintainOrder {
                 if (p1.count != p2.count) {
                     return p2.count - p1.count;
                 } else {
-                    return p2.firstIndex - p1.firstIndex;
+                    return p1.firstIndex - p2.firstIndex;
                 }
             }
         });
@@ -50,6 +52,7 @@ public class SortByFrequencyAndMaintainOrder {
     private static void sortByFrequencyAndMaintainOrder(int[] a) {
 
         int[] dummy = new int[a.length];
+        //key: a[i], value: [i, freq of a[i]]
         Map<Integer, ArrayList<Integer>> map = new HashMap<>();
         for (int i = 0; i < a.length; i++) {
             if(map.containsKey(a[i])) {

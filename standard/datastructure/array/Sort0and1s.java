@@ -16,21 +16,6 @@ public class Sort0and1s {
         System.out.println(Arrays.toString(c));
     }
 
-    private static void sort0sAnd1s(int[] a) {
-        int i = 0,j = a.length-1;
-        while(i < j) {
-            if(a[i]>a[j]) {
-                swap(a,i,j);
-                ++i;
-            }
-            if(a[i]==a[j]) {
-                if(a[i]==0) ++i;
-                else --j;
-            }
-            if(a[i]<a[j]) ++i;
-        }
-    }
-
     private static void sort0s1s(int[] a) {
         int left =0, right=a.length-1;
         while(left<right) {

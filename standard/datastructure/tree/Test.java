@@ -24,7 +24,7 @@ public class Test {
         bt2.root.right.right = new Node(6);
 
         //bt.preOrder(bt.root);
-        //bt.preOrderIterative(bt.root);
+        bt.preOrderIterative(bt.root);
         //bt.postOrder(bt.root);
         System.out.println();
         //bt.inOrder(bt.root);
@@ -45,6 +45,17 @@ public class Test {
         bt.printLeftView(bt.root);*/
         //bt.printRight(bt.root);
         System.out.println(bt.isBst(bt.root,Long.MIN_VALUE,Long.MAX_VALUE));
+        System.out.println();
+        System.out.println("**********************************");
+        System.out.println(bt.diameter(bt.root));
+
+        System.out.println("***************000000000000000000000*******************");
+        bt.printKDistant(bt.root,2,0);
+        System.out.println("***************000000000000000000000*******************");
+
+        bt.getTargetLevel(bt.root,bt.root.right,0);
+        System.out.println("level of "+bt.root.right.data+" :"+bt.getTargetLevel(bt.root,bt.root.right,0));
+
 
     }
 }

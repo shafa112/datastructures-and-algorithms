@@ -3,6 +3,7 @@ package datastructure.tree;
 import java.util.*;
 
 public class BinaryTree {
+
     public Node root;
 
     public void preOrder(Node root) {
@@ -202,6 +203,145 @@ public class BinaryTree {
         if(root==null) return true;
         if(root.data<=min || root.data>=max) return false;
         return isBst(root.left,min,root.data) && isBst(root.right,root.data,max);
+    }
+
+    public int diameter(Node root) {
+        int[] dia = new int[1];
+        util(root,dia);
+        return dia[0];
+    }
+
+    public int util(Node root, int[] dia) {
+        if(root == null) return 0;
+        int lh = util(root.left,dia);
+        int rh = util(root.right,dia);
+        if(lh+rh>dia[0]) dia[0] = lh+rh;
+        return 1+Math.max(lh,rh);
+    }
+
+    //binary tree to dll inorder
+    Node bToDLL(Node root)
+    {
+        Stack<Node> s = new Stack<>();
+        Node head = null;
+        Node temp = null;
+        Node node = root;
+        while(node!=null || !s.isEmpty()) {
+            while (node!=null) {
+                s.push(node);
+                node=node.left;
+            }
+            node = s.pop();
+            if(head==null) {
+                head = new Node(node.data);
+                temp = head;
+            }
+            else {
+                Node tNode = new Node(node.data);
+                tNode.left = temp;
+                temp.right = tNode;
+                temp = temp.right;
+            }
+            node = node.right;
+        }
+        return head;
+    }
+
+    //binary tree to single ll preorder
+    public void flatten(Node root) {
+        Node head = null;
+        Node temp = null;
+        Stack<Node> s = new Stack<>();
+        if(root != null) s.push(root);
+        while(!s.isEmpty()) {
+            Node node = s.pop();
+            //System.out.print(node.data+" ");
+
+            if(head==null) {
+                head = node;
+                temp = head;
+            }
+            else {
+                Node tNode = node;
+                //tNode.left = temp;
+                temp.right = tNode;
+                temp = temp.right;
+            }
+
+            if(node.right!=null) {
+                s.push(node.right);
+                node.right = null;
+            }
+            if(node.left!=null) {
+                s.push(node.left);}
+            node.left = null;
+        }
+        root = head;
+    }
+
+
+    //---------------------------------------------------------
+    Node lca2(Node root, int n1,int n2)
+    {
+        // Your code here
+        ArrayList<Node> l1 = new ArrayList<>();
+        ArrayList<Node> l2 = new ArrayList<>();
+
+        printAncestors2(root,n1,l1);
+        printAncestors2(root,n2,l2);
+
+        return find(l1,l2);
+
+
+    }
+
+    public Node find(ArrayList<Node> l1,ArrayList<Node> l2) {
+        int size1 = l1.size();
+        int size2 = l2.size();
+
+        for(int i =0; i<size1;++i)
+        {
+            for(int j=0; j<size2;++j) {
+                if(l1.get(i).data==l2.get(j).data) return l2.get(j);
+            }
+        }
+        return null;
+    }
+
+    public boolean printAncestors2(Node root, int key, ArrayList<Node> l) {
+        if(root==null) return false;
+        if(root.data == key) return true;
+        if(printAncestors2(root.left,key,l) || printAncestors2(root.right,key,l)) {
+            l.add(root);
+            return true;
+        }
+        return false;
+    }
+
+    //better soln than lca2
+    public Node lowestCommonAncestor(Node root, Node p, Node q) {
+        if(root==null) return null;
+        if(root==p || root ==q) return root;
+        Node left = lowestCommonAncestor(root.left,p,q);
+        Node right = lowestCommonAncestor(root.right,p,q);
+        if(left==null) return right;
+        if(right==null) return left;
+        return root;
+    }
+
+    public void printKDistant(Node root, int k, int d) {
+        if(root == null) return;
+        if(k == d) System.out.println(root.data);
+        printKDistant(root.left,k,d+1);
+        printKDistant(root.right,k,d+1);
+    }
+
+    //test
+    public int getTargetLevel(Node root, Node target, int level) {
+        if(root == null) return 0;
+        if(root == target) return level;
+        return Math.max(getTargetLevel(root.left,target,level+1),getTargetLevel(root.right,target,level+1));
+
     }
 
 

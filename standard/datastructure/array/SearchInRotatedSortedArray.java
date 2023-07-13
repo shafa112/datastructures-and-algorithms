@@ -1,6 +1,10 @@
 package datastructure.array;
 
 import static algorithm.searching.BinarySearch.binarySearchRecursive;
+/*
+ * pivot here is index of largest element in sorted array
+ * input array : {5, 6, 7, 8, 9, 10, 1, 2, 3} then pivot=5(index of element 10)
+ */
 
 public class SearchInRotatedSortedArray {
 

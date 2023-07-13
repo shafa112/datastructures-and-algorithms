@@ -1,5 +1,8 @@
 package datastructure.array;
 
+/*
+The majority element is the element that appears more than ⌊n / 2⌋ times.
+*/
 public class MajorityElement {
 
     public static void main(String[] args) {
@@ -11,7 +14,7 @@ public class MajorityElement {
 
     static int majorityElement(int a[], int size)
     {
-        if(a.length==1) return -1;
+        if(a.length==1) return a[0];
         int count = 1;
         int maj_index=0;
         for(int i = 1; i < size; ++i) {
