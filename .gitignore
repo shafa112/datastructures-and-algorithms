@@ -1,0 +1,69 @@
+# IntelliJ IDEA files
+.idea/
+out/
+
+# Compiled class files
+*.class
+
+# Compiled JAR files
+*.jar
+
+# Compiled WAR files
+*.war
+
+# Maven specific files and directories
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Gradle specific files and directories
+.gradle/
+/build/
+
+# Eclipse specific files and directories
+bin/
+.settings/
+.project
+.classpath
+
+# Logs
+*.log
+
+# Mac specific files
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+
+# Compiled bytecode files
+*.class
+
+# Compiled .groovy files
+*.groovy
+
+# Compiled .aj files (AspectJ)
+*.aj
+
+# IntelliJ .iml files
+*.iml
+
+# IntelliJ .ipr files
+*.ipr
+
+# IntelliJ .iws files
+*.iws
+
+# External property files
+*.properties
+
+# Test output
+test-output/
+
+# Maven Wrapper
+.mvn/wrapper/
+
