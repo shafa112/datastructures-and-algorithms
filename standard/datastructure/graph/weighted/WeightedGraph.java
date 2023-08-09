@@ -38,11 +38,11 @@ public class WeightedGraph {
     public Iterable<Edge> edges() {
         ArrayList<Edge> edges = new ArrayList<>();
         for (int i = 0; i < N; i++) {
-            if(vertex[i] != null ) {
-                for(Edge e : vertex[i]) {
+            if (vertex[i] != null) {
+                for (Edge e : vertex[i]) {
                     int v = i;
                     int w = e.other(v);
-                    if(v<w) edges.add(e);
+                    if (v < w) edges.add(e);
                 }
             }
         }

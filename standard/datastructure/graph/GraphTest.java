@@ -12,10 +12,10 @@ public class GraphTest {
 
     private static void testUndirectedWeightedGraph() {
         WeightedGraph g = new WeightedGraph(4);
-        g.addEdge(new Edge(10,0,1));
-        g.addEdge(new Edge(7,0,2));
-        g.addEdge(new Edge(20,0,3));
-        g.addEdge(new Edge(4,1,2));
+//        g.addEdge(new Edge(10,0,1));
+//        g.addEdge(new Edge(7,0,2));
+//        g.addEdge(new Edge(20,0,3));
+//        g.addEdge(new Edge(4,1,2));
 
         for (Edge e : g.edges()) {
             int v = e.either();

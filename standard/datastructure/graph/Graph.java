@@ -10,8 +10,8 @@ import java.util.ArrayList;
  */
 public class Graph {
 
-    public ArrayList<Integer>[] vertex; // We sometimes also name this as graph in ds-algo question
-    int N; //capacity (Vertex more than this can't be added)
+    private ArrayList<Integer>[] vertex; // We sometimes also name this as graph in ds-algo question
+    private int N; //capacity (Vertex more than this can't be added)
 
     public Graph(int N) {
         this.N = N;

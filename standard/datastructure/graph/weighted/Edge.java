@@ -9,10 +9,10 @@ public class Edge {
     private final int v;
     private final int w;
 
-    public Edge(double weight, int v, int w) {
-        this.weight = weight;
+    public Edge(int v, int w, double weight) {
         this.v = v;
         this.w = w;
+        this.weight = weight;
     }
 
     public double weight() {
@@ -37,6 +37,6 @@ public class Edge {
     }
 
     public String toString() {
-        return String.format("%d---%d %.5f", v, w, weight);
+        return String.format("[%d---%d %.5f]", v, w, weight);
     }
 }
