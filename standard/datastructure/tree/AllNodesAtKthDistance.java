@@ -1,43 +1,49 @@
 package datastructure.tree;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
-// https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/
 public class AllNodesAtKthDistance {
-
     public List<Integer> distanceK(Node root, Node target, int k) {
-        List<Integer> ans = new ArrayList<>();
-        distanceK(root, target, k, ans);
-        return ans;
+        List<Integer> l = new ArrayList<>();
+        distanceK(root, target, k, l);
+        return l;
     }
 
-    public int distanceK(Node root, Node target, int k, List<Integer> answer) {
+    private int distanceK(Node root, Node target, int k, List<Integer> l) {
         if (root == null) return -1;
-        if (root == target) {
-            distanceKFromRoot(target, k, answer);
-            return k-1;
+        if (root != null && root == target) {
+            nodesAtDistKFromRoot(root, k, l);
+            return k - 1;
         }
-        int left = distanceK(root.left, target, k, answer);
-        if(left >= 0) {
-            if(left == 0) answer.add(root.data);
-            else distanceKFromRoot(root.right, left - 1, answer);
-            return left - 1;
-        }
-        int right = distanceK(root.right, target, k, answer);
-        if(right >= 0) {
-            if(right == 0) answer.add(root.data);
-            else distanceKFromRoot(root.left, right-1, answer);
-            return right - 1;
-        }
+        int left = distanceK(root.left, target, k, l);
+        if(left == 0) l.add(root.data);
+        if(left > 0) nodesAtDistKFromRoot(root.right, left - 1, l);
+        if(left >= 0) return left-1;
+
+        int right = distanceK(root.right, target, k, l);
+        if(right == 0) l.add(root.data);
+        if(right > 0) nodesAtDistKFromRoot(root.left, right - 1, l);
+        if(right >= 0) return right-1;
         return -1;
     }
 
-    public void distanceKFromRoot(Node root, int k, List<Integer> answer) {
+    private void nodesAtDistKFromRoot(Node root, int k, List<Integer> l) {
         if (root == null || k < 0) return;
-        if (k == 0) answer.add(root.data);
-        distanceKFromRoot(root.left, k - 1, answer);
-        distanceKFromRoot(root.right, k - 1, answer);
+        nodesAtDistKFromRoot(root.left, k - 1, l);
+        if (k == 0) l.add(root.data);
+        nodesAtDistKFromRoot(root.right, k - 1, l);
+    }
+
+    public static void main(String[] args) {
+        BinaryTree b = new BinaryTree();
+        b.root = new Node(3);
+        b.root.left = new Node(1);
+        b.root.right = new Node(4);
+        b.root.right.left = new Node(2);
+        BinaryTreePrinter.printNode(b.root);
+        System.out.println("hey");
+        AllNodesAtKthDistance allNodesAtKthDistance = new AllNodesAtKthDistance();
+        System.out.println(allNodesAtKthDistance.distanceK(b.root,b.root.right,1));
     }
 }
