@@ -2,8 +2,65 @@ package algorithm.dynamicprogramming;
 
 import util.Util;
 
+import java.util.Arrays;
+
 public class LongestCommonSubsequence {
 
+    /*
+     * Recursive Solution:
+     * Time : O(2^(m+n))
+     * Space: m+n
+     * */
+    public int longestCommonSubsequence1(String text1, String text2) {
+        return LCSubsequence1(text1,text2,0,0);
+    }
+
+    public int LCSubsequence1(String text1, String text2, int i, int j) {
+        if(i>=text1.length() || j>=text2.length()) return 0;
+        int len = 0;
+        if(text1.charAt(i) == text2.charAt(j)) {
+            len =  1 + LCSubsequence1(text1, text2, i+1, j+1);
+        } else {
+            len = Math.max(
+                    LCSubsequence1(text1,text2,i,j+1),
+                    LCSubsequence1(text1,text2,i+1,j)
+            );
+        }
+        return len;
+    }
+
+    /*
+     * Dp with Recursive Solution:
+     * Time : O(m*n)
+     * Space: m+n + m*n
+     * */
+    public int longestCommonSubsequence2(String text1, String text2) {
+        int[][] dp = new int[text1.length()][text2.length()];
+        for (int[] a:dp) {
+            Arrays.fill(a,-1);
+        }
+        return LCSubsequence2(text1,text2,0,0,dp);
+    }
+
+    public int LCSubsequence2(String text1, String text2, int i, int j,int[][] dp) {
+        if(i>=text1.length() || j>=text2.length()) return 0;
+        if(dp[i][j]!=-1) return dp[i][j];
+        int len = 0;
+        if(text1.charAt(i) == text2.charAt(j)) {
+            len =  1 + LCSubsequence2(text1, text2, i+1, j+1,dp);
+        } else {
+            len = Math.max(
+                    LCSubsequence2(text1,text2,i,j+1,dp),
+                    LCSubsequence2(text1,text2,i+1,j,dp)
+            );
+        }
+        return dp[i][j]=len;
+    }
+
+    // DP with tabulation //removes the auxiliary stack space
+    // Time: mn
+    // Space: (mn)
+    //
     // "abcde" "afce"
     // lcs is ace and length of the longest common subsequence is 3
     /*
@@ -23,16 +80,6 @@ public class LongestCommonSubsequence {
         }
         Util.printArray(dp);
         return dp[s1.length()][s2.length()];
-    }
-
-    // dp-fy it later
-    public static int lcsRecursive(String s1, String s2, int l1, int l2) {
-        if(l1 == 0 || l2 == 0) return 0;
-        if(s1.charAt(l1-1) == s2.charAt(l2-1)) {
-            return 1 + lcsRecursive(s1, s2, l1-1, l2-1);
-        } else {
-            return Math.max(lcsRecursive(s1, s2, l1, l2-1), lcsRecursive(s1, s2, l1-1, l2));
-        }
     }
 
     public static void main(String[] args) {
