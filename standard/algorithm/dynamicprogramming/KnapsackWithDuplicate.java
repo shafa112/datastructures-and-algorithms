@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * Knapsack with duplicate (Each item can be picked multiple times till capacity of knapsack is reached)
  * int wt[], int price[]
- * profit(n, c) = max(profit(n-1, c), profit(n, c-wt[n]);
+ * profit(n, c) = max(profit(n-1, c), price[n]+profit(n, c-wt[n]);
  */
 public class KnapsackWithDuplicate {
 

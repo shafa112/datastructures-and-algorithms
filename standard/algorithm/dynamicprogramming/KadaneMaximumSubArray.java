@@ -10,6 +10,8 @@ public class MaximumSubarrayKadane {
 
     // Complexity: O(n)
     // Space: O(n)
+    // inc[i] means we are including the element a[i] in calculating the sum from index 0 to index i.
+    // exc[i] means we are excluding the element a[i] in calculating the sum from index 0 to index i.
     public int maxSubArray(int[] a) {
         int n = a.length;
         int inc[] = new int[n];
@@ -23,7 +25,8 @@ public class MaximumSubarrayKadane {
         return Math.max(inc[n-1], exc[n-1]);
     }
 
-    // best
+    // Complexity: O(n)
+    // Space: O(1)
     public int maxSubArray2(int[] a) {
         int n = a.length;
         int inc = a[0];
@@ -36,6 +39,8 @@ public class MaximumSubarrayKadane {
         return Math.max(inc, exc);
     }
 
+    // Complexity: O(n)
+    // Space: O(n)
     static int dpMaxSubArraySum(int a[]){
         int n = a.length;
         int dp[] =  new int[n];
