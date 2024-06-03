@@ -1,5 +1,8 @@
 package datastructure.array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PrintPowerSet {
 
     static void printPowerSet(char[] set, int set_size)
@@ -30,6 +33,26 @@ public class PrintPowerSet {
     public static void main (String[] args)
     {
         char[] set = {'a', 'b', 'c'};
-        printPowerSet(set, 3);
+        //printPowerSet(set, 3);
+        System.out.println(AllPossibleStrings("AA"));
+    }
+
+
+
+    public static List<String> AllPossibleStrings(String s)
+    {
+        char[] input = s.toCharArray();
+        List<String> ans = new ArrayList<>();
+        int powSetSize = (int)Math.pow(2,input.length);
+        for(int i = 0; i< powSetSize; ++i) {
+            String str = "";
+            for(int j = 0; j < input.length; ++j) {
+                if((i & (1 << j)) > 0) {
+                    str+=input[j];
+                }
+            }
+            ans.add(str);
+        }
+        return ans;
     }
 }

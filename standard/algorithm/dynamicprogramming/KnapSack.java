@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * 0/1 Knapsack (Each item can only be picked once)
  * int wt[], int price[]
- * profit(n, c) = max(profit(n-1, c), profit(n-1, c-wt[n]);
+ * profit(n, c) = max(profit(n-1, c), price[n] + profit(n-1, c-wt[n]);
  *
  * https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
  */
