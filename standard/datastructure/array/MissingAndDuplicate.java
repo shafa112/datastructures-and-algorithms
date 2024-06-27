@@ -43,4 +43,13 @@ public class MissingAndDuplicate {
         }
         return -1;
     }
+
+    public int missingNumber(int[] nums) {
+        int missNum = nums[0];
+        int i =1;
+        for ( i = 1; i < nums.length; i++) {
+            missNum ^= nums[i]^i;
+        }
+        return missNum^0^i;
+    }
 }

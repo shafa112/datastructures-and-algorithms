@@ -25,6 +25,7 @@ public class Graph {
         vertex[w].add(v);
     }
 
+    // Adjacency list
     // Returns iterable of all adjacent vertices of vertex v
     public Iterable<Integer> adj(int v) {
         return vertex[v];

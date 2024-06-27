@@ -185,4 +185,53 @@ public class BinarySearchTree {
         System.out.println(bst.lowestCommonAncestor(root, root.left, root.right));
     }
 
+    public boolean isValidBST(Node root, int min, int max) {
+
+        if(root==null) return true;
+        if(root.data<=min || root.data>=max) return false;
+        return isValidBST(root.left,min,root.data) && isValidBST(root.right,root.data,max);
+    }
+
+    public Node successor(Node root, Node key) {
+        if(root == null) return null;
+        if(root.data == key.data) return null;
+        Node temp = root;
+        Node parent = null;
+        Node grandParent = null;
+        while(temp!=null) {
+            if(temp.data == key.data) {
+                if(parent!=null && parent.left.data == temp.data) {
+                    if(temp.right!=null) return getMinFromRight(temp.right);
+                    else return parent;
+                } else if (parent!=null && parent.right.data == temp.data) {
+                    if(temp.right!=null) return getMinFromRight(temp.right);
+                    else if(grandParent!=null) {
+                        if(grandParent.left.data == parent.data) {
+                            return grandParent;
+                        } else if(grandParent.right.data == parent.data) {
+                            return null;
+                        }
+                    }
+                    else {
+                        return null;
+                    }
+                }
+            } else if(temp.data > key.data) {
+                grandParent = parent;
+                parent = temp;
+                temp = temp.left;
+            } else {
+                grandParent = parent;
+                parent = temp;
+                temp = temp.right;
+            }
+
+        }
+        return null;
+    }
+    
+    public Node getMinFromRight(Node root) {
+        return null;
+    }
+
 }

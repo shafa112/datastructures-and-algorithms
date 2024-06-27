@@ -7,13 +7,13 @@ import java.util.ArrayList;
 public class WeightedGraph {
 
     ArrayList<Edge>[] vertex;
-    int edgeCount = 0;// number of edges
-    int N; //capacity
+    int E = 0;// Edge count
+    int V; //capacity
 
-    public WeightedGraph(int N) {
-        this.N = N;
-        vertex = (ArrayList<Edge>[]) new ArrayList[N];
-        for (int i = 0; i < N; i++) {
+    public WeightedGraph(int V) {
+        this.V = V;
+        vertex = (ArrayList<Edge>[]) new ArrayList[V];
+        for (int i = 0; i < V; i++) {
             vertex[i] = new ArrayList<>();
         }
     }
@@ -24,7 +24,7 @@ public class WeightedGraph {
         int w = edge.other(v);
         vertex[v].add(edge);
         vertex[w].add(edge);
-        ++edgeCount;
+        ++E;
     }
 
     public Iterable<Edge> adj(int v) {
@@ -32,12 +32,12 @@ public class WeightedGraph {
     }
 
     public int edgeCount() {
-        return edgeCount;
+        return E;
     }
 
     public Iterable<Edge> edges() {
         ArrayList<Edge> edges = new ArrayList<>();
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < V; i++) {
             if (vertex[i] != null) {
                 for (Edge e : vertex[i]) {
                     int v = i;
@@ -54,7 +54,7 @@ public class WeightedGraph {
     }
 
     public int size() {
-        return N;
+        return V;
     }
 
 }

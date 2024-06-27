@@ -3,9 +3,33 @@ package datastructure.tree;
 //https://leetcode.com/problems/binary-tree-maximum-path-sum/
 public class MaxPathSum {
 
+    /*
+    * Uses similar logic to diameter of binary tree
+    * */
+    public int maxPathSumBetter(Node root) {
+        int[] max = new int[1];
+        max[0] = Integer.MIN_VALUE;
+        maxPathSum2(root,max);
+        return max[0];
+    }
+
+    public int maxPathSum2(Node root,int[] max) {
+        if(root==null) return 0;
+        int leftMax = Math.max(0,maxPathSum2(root.left,max));
+        int rightMax = Math.max(0,maxPathSum2(root.right,max));
+        max[0] = Math.max(max[0],root.data+leftMax+rightMax);
+        //System.out.println(max[0]);
+        return root.data+Math.max(leftMax,rightMax);
+    }
+
+
+    /*
+    * Another approach
+    * */
     static class MaxSumInfo {
         int sumWithNodeInPath;
         int sumWithNodeNotInPath;
+
         MaxSumInfo(int sumWithNodeInPath, int sumWithNodeNotInPath) {
             this.sumWithNodeInPath = sumWithNodeInPath;
             this.sumWithNodeNotInPath = sumWithNodeNotInPath;
@@ -75,13 +99,18 @@ public class MaxPathSum {
         return maxIncludingRoot;
     }
 
-
     static int max(int... a) {
         int max = a[0];
         for(int i = 1; i < a.length; i++) {
             max = Math.max(max, a[i]);
         }
         return max;
+    }
+
+    public boolean hasPathSum(Node root, int target) {
+        if(root == null) return false;
+        if(root.left == null && root.right == null && target-root.data == 0) return true;
+        return hasPathSum(root.left,target-root.data) || hasPathSum(root.right,target-root.data);
     }
 
 }

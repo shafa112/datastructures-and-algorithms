@@ -1,6 +1,7 @@
 package datastructure.tree;
 
 /**
+ * Using idea of Inorder traversal of bst gives sorted order
  * Think in sorted array two index are swapped.
  */
 public class TwoNodesSwappedBST {

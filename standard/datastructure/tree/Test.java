@@ -1,74 +1,56 @@
 package datastructure.tree;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Test {
 
     public static void main(String[] args) {
-        BinaryTree bt = new BinaryTree();
-        bt.root = new Node(1);
-        bt.root.left = new Node(2);
-        bt.root.right = new Node(3);
-
-        bt.root.left.left = new Node(4);
-        bt.root.left.right = new Node(5);
-        bt.root.right.right = new Node(6);
-
-        BinaryTree bt2 = new BinaryTree();
-        bt2.root = new Node(1);
-        bt2.root.left = new Node(2);
-        bt2.root.right = new Node(3);
-
-        bt2.root.left.left = new Node(4);
-        bt2.root.left.right = new Node(5);
-        bt2.root.right.right = new Node(6);
-
-        //bt.preOrder(bt.root);
-        // bt.preOrderIterative(bt.root);
-        //bt.postOrder(bt.root);
-        System.out.println();
-        //bt.inOrder(bt.root);
-        //bt.postOrderIterative(bt.root);
-        //bt.inOrderIterative(bt.root);
-        // bt.levelOrder(bt.root);
-        System.out.println();
-        Node nroot = bt.copy(bt.root);
-        // bt.levelOrderNewLine(nroot);
-        System.out.println("--------------------------");
-        bt.levelOrderNewLine(bt.root);
-        /*int height = bt.getHeight(bt.root);
-        System.out.println("Height of tree: "+height);
-        ArrayList<Node> aList[] = new ArrayList[height+1];
-        bt.levelOrderRecursive(bt.root,aList,0);
-        bt.printList(aList);
-        System.out.println("found: "+bt.search(bt.root,-1));
-        bt.printLeftView(bt.root);
-        //bt.printRight(bt.root);
-        System.out.println(bt.isBst(bt.root,Long.MIN_VALUE,Long.MAX_VALUE));
-        System.out.println();
-        System.out.println("**********************************");
-        System.out.println(bt.diameter(bt.root));
-
-        System.out.println("***************000000000000000000000*******************");
-        bt.printKDistant(bt.root,2,0);
-        System.out.println("***************000000000000000000000*******************");
-
-        bt.getTargetLevel(bt.root,bt.root.right,0);
-        System.out.println("level of "+bt.root.right.data+" :"+bt.getTargetLevel(bt.root,bt.root.right,0));
-        */
-
 
         BinaryTree b = new BinaryTree();
-        b.root = new Node(1);
-        b.root.left = new Node(2);
-        b.root.right = new Node(3);
-        b.root.right.left = new Node(4);
-        b.root.right.right = new Node(6);
-        b.root.right.left.right = new Node(5);
-        b.root.right.left.right.left = new Node(7);
+        b.root = new Node(3);
+        b.root.left = new Node(1);
+        b.root.right = new Node(4);
+        b.root.right.left = new Node(2);
+        BinaryTreePrinter.printNode(b.root);
+        System.out.println("hey");
+        //recoverTree(b.root);
+        AllNodesAtKthDistance allNodesAtKthDistance = new AllNodesAtKthDistance();
+        System.out.println(allNodesAtKthDistance.distanceK(b.root,b.root.right,1));
 
     }
 
     private static void testLevelOrderNewLine(BinaryTree b) {
         b.levelOrderNewLine(b.root);
+    }
+
+    public static void recoverTree(Node root) {
+        System.out.println("In recover");
+        if(root==null) return;
+        Boolean[] first = new Boolean[]{false};
+        Node[] nodesToSwap = new Node[2];
+        util(root,nodesToSwap,first);
+        System.out.println(nodesToSwap[0]+" "+nodesToSwap[1]);
+
+    }
+
+    private static void util(Node root, Node[] nodesToSwap,Boolean[] first) {
+        System.out.println("In util");
+        if(root==null) return;
+        util(root.left,nodesToSwap,first);
+        if(root.left != null) {
+            if(root.data < root.left.data) {
+                System.out.println("violation");
+                if(!first[0]){
+                    System.out.println("first: "+root.left.data);
+                    nodesToSwap[0] = root.left;
+                    first[0]=true;
+                }
+                System.out.println("sec: "+root.data);
+                nodesToSwap[1] = root;
+            }
+        }
+        util(root.right,nodesToSwap,first);
     }
 
 }

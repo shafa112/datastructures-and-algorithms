@@ -35,6 +35,26 @@ public class TreeView {
         return l;
     }
 
+    //working on leetcode
+    public List<Integer> rightSideView(Node root) {
+        List<Integer> l = new ArrayList<>();
+        Deque<Node> q = new ArrayDeque<>();
+        if (root == null) return l;
+        q.add(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            l.add(q.peekLast().data);
+            while (size-- > 0) {
+                Node node = q.remove();
+                //System.out.print(node.data + " ");
+                if (node.left != null) q.add(node.left);
+                if (node.right != null) q.add(node.right);
+            }
+        }
+        return l;
+
+    }
+
     public static List<Integer> rightView(Node root) {
         Queue<Node> q = new LinkedList<>();
         List<Integer> l = new ArrayList<>();
@@ -97,23 +117,6 @@ public class TreeView {
 
     }
 
-
-    public void topView2(Node root) {
-
-        if(root == null) return;
-        Queue<Node> q = new LinkedList<>();
-        q.add(root);
-        int i = 0;
-        while(!q.isEmpty()) {
-            int size = q.size();
-            while(size > 0) {
-
-                --size;
-            }
-        }
-
-    }
-
     public static List<List<Integer>> verticalView(Node root) {
         if (root == null) return null;
         List<List<Integer>> l = new ArrayList<>();
@@ -171,8 +174,6 @@ public class TreeView {
         System.out.println(s.toArray());
         return finalList;
     }
-
-
 
     public static void topView1(Node root) {
         if(root==null) return;

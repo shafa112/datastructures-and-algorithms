@@ -9,8 +9,8 @@ import java.util.PriorityQueue;
  * So we will add into these queue in such a way that either their size is equal or max pq has one extra element
  * Insert operation
  *  - decide based on the input which queue it should go in
- *  - And then check whether it needs balancing and balance if needed.
  *  - Insert the input in the decided queue.
+ *  - And then check whether it needs balancing and balance if needed.
  */
 public class MedianFinder {
 

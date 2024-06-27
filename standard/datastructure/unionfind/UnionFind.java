@@ -32,7 +32,7 @@ public class UnionFind {
     public int rootInPathCompression(int i){
         while(i!=parent[i]){
             parent[i]=parent[parent[i]];
-            i =parent[i];
+            i = parent[i];
         }
         return i;
     }
@@ -58,4 +58,5 @@ public class UnionFind {
         //You can alternative use rootInPathCompression to achieve better performance
         return root(p) == root(q);
     }
+
 }

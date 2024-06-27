@@ -3,9 +3,13 @@ package algorithm.dynamicprogramming;
 import util.Util;
 
 // https://leetcode.com/problems/count-square-submatrices-with-all-ones/description/
+/*
+* Here while filling the dp array each cell denotes how many squares have their right bottom at that cell
+*
+*
+* */
 public class DpCountSquareSubMatrices {
 
-    //
     static public int countSquares(int[][] a) {
         int m = a.length; // number of rows
         int n = a[0].length; // number of cols
@@ -19,6 +23,8 @@ public class DpCountSquareSubMatrices {
                 }
             }
         }
+
+        Util.printArray(dp);
         return ans;
     }
 

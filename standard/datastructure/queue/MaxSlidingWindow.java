@@ -20,7 +20,7 @@ public class MaxSlidingWindow {
             return new int[]{Arrays.stream(a).max().getAsInt()};
         }
         Deque<Integer> dq = new ArrayDeque<>();
-        int[] ans = new int[a.length-k+1]; //this
+        int[] ans = new int[a.length-k+1];
         int r=0;
         // i represents current element we are processing
         for (int i = 0; i < a.length; i++) {

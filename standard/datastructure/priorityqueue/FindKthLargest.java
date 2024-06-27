@@ -11,6 +11,7 @@ public class FindKthLargest {
         System.out.println(findKthLargest(a,4));
     }
     public static int findKthLargest(int[] a, int k ) {
+        //check comparator in bhaijaan notes or net
         Comparator<Integer> byElement = (a1, a2) -> a1 - a2;
         PriorityQueue<Integer> pq = new PriorityQueue<>(byElement);
         for (int i = 0; i < a.length; i++) {

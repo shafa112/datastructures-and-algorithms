@@ -7,11 +7,11 @@ import java.util.Arrays;
 /**
  * We will have two partition p1 and p2 with sum s1 and s2 respectively. We call p1 one with lower sum i.e. s1 <= s2
  * Let's say, K = total sum of array / 2 # i.e. half the sum of array
- * We will find the closes partition p1 which is closes to K. That will also give the minDiff
+ * We will find the closest partition p1 which is closest to K. That will also give the minDiff
  * i.e. s2-s1 for the partition p1 closest to K.
  * How do we find p1 whose sum is closes to K.
- * We know sum of p1 <= K because p1 sum is not greater than p2 sum (As we have chosen)
- * Now to find the p1 with clos-est sum to K.
+ * We know sum of p1 <= K because p1 sum is not greater than p2 sum (As we have chosen).
+ * Now to find the p1 with closest sum to K.
  * we will call isSubsetSum(a, K), isSubsetSum(a, k-1)...., isSubsetSum(a, 0)
  * The first to give true in the above order is our answer p1 and sum will be
  * second argument in the above function returning true i.e. isSubsetSum(a, x) giving true so p1 sum is x.
@@ -21,7 +21,7 @@ import java.util.Arrays;
  */
 public class MinimumSumPartition {
 
-    // Solution 1: As per comments write above clas...s
+    // Solution 1: As per comments write above class
     public static int minDiffUsingSubsetSum(int a[]) {
         int totalSum = Arrays.stream(a).sum();
         int K = totalSum/2;
@@ -83,9 +83,9 @@ public class MinimumSumPartition {
 
     public static void main(String[] args) {
         // {20, 20}=40 and {16,18,19}=53. Answer = 13
-        // int a[] = {20, 19, 18, 20, 16};
+        int a[] = {20, 19, 18, 20, 16};
         // Util.printArray(a);
-        int a[] = {1};
+        //int a[] = {1};
         System.out.println(minDiffUsingSubsetSum(a));
     }
 }

@@ -36,8 +36,8 @@ public class LongestValidParentheses {
 
 
     /*
-    *
-    * Valid parenthesis will consists of equal number of open and closed brackets
+    * Video link:
+    * Valid parenthesis will consist of equal number of open and closed brackets
     * When we travel from left to right, we keep a count of left and right bracket
     * when they are equal we calculate length
     * If closing bracket is more than open then we set open and left bracket count to 0

@@ -46,8 +46,8 @@
             }
         }
 
-        public Node reverse(Node node) {
 
+        public Node reverse(Node node) {
             if(node.next == null) return node;
             Node n = node;
             Node t = reverse(n.next);
@@ -100,6 +100,20 @@
 
             return t1;
         }
+
+        public boolean hasCycle(Node head) {
+            if(head==null || head.next==null) return false;
+            Node slow = head;
+            Node fast = head.next;
+            while(slow!=null && fast!=null) {
+                if(fast==slow) return true;
+                slow = slow.next;
+                if(fast.next==null) return false;
+                fast = fast.next.next;
+            }
+            return false;
+        }
+
 
         public static void main(String[] args) {
             System.out.println("Hello from linked list");

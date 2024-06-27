@@ -1,10 +1,10 @@
 package algorithm.dynamicprogramming;
 
-public class MaximumSubarrayKadane {
+public class KadaneMaximumSubArray {
 
     public static void main(String[] args) {
         int[] a = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        MaximumSubarrayKadane obj = new MaximumSubarrayKadane();
+        KadaneMaximumSubArray obj = new KadaneMaximumSubArray();
         System.out.println(obj.maxSubArray(a));
     }
 

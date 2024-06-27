@@ -4,6 +4,18 @@ package algorithm.dynamicprogramming;
 
 public class UniquePaths {
 
+    /*
+    * Recursive solution :
+    * Time: O(2^(m*n)) // as for every cell(m,n) we have 2 choices if only recursion and no dp;
+    * Stack space: length of path = (m-1) + (n-1)
+    *
+    *
+    *
+    * DP with Recursion:
+    * Time: m*n // call for each cell dp[i][j]
+    * Stack space: length of path = (m-1) + (n-1) + m*n(for dp array)
+    *
+    * */
     public static int uniquePaths(int m, int n,int[][] dp) {
         if(n<0 || m<0) return 0;
         if(dp[m][n]!=0) return dp[m][n];
@@ -18,6 +30,52 @@ public class UniquePaths {
         for (int i = 0; i < dp[0].length; i++) {
             dp[0][i] = 1;
         }
+    }
+
+    /*
+    * DP Solution with tabulation:
+    * Time: m*n // call for each cell dp[i][j]
+    *  Stack space: length of path = m*n(for dp array)
+    * */
+    public int UniquePathWithTabulation(int m, int n) {
+        int[][] dp = new int[m][n];
+        for(int i = 0; i < m; ++i) {
+            for(int j = 0; j < n; ++j) {
+                if(i==0 || j==0) dp[i][j] = 1;
+                else dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+        return dp[m-1][n-1];
+    }
+
+    /*
+     * DP Solution with tabulation + Space optimization (1D ARRAY):
+     *If there is prev row and prev col then we can space optimize it
+     *
+     *
+     * prev row = [0,0,0,0]
+     * curr row = [0,0,0,0];
+     * curr row[i] = prev[i] + curr row[i-1]
+     * prev = curr
+     *
+     *
+     * Time: m*n
+     *  Stack space: length of path = n(for dp array)
+     * */
+    public int UniquePathWithTabulationWithSpaceOptimized(int m, int n) {
+        int[] prev = new int[n];
+        int[] curr ;
+        for(int i = 0; i < m; ++i) {
+            curr = new int[n];
+            for(int j = 0; j < n; ++j) {
+                if(i==0 || j==0) curr[j] = 1;
+                else curr[j] = prev[j] + curr[j-1];
+            }
+            prev = curr;
+        }
+
+
+        return prev[n-1];
     }
 
     /*

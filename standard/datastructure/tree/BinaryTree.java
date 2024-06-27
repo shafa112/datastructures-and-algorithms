@@ -322,4 +322,15 @@ public class BinaryTree {
 
     }
 
+    int Dia = 0;
+    public int getDia(Node root) {
+        if(root==null) return 0;
+        int lh = getDia(root.left);
+        int rh = getDia(root.right);
+        if(Dia<(lh+rh)) Dia = lh+rh;
+        return 1+Math.max(lh,rh);
+    }
+
+
+
 }

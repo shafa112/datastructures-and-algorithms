@@ -10,8 +10,6 @@ public class KthSmallestBST {
             Node ans = inOrder(root,0,k);
             if(ans!=null) return ans.data;
             return Integer.MIN_VALUE;
-
-
     }
 
     public void inOrderRec(Node root,int k) {
@@ -41,6 +39,27 @@ public class KthSmallestBST {
             node = node.right;
         }
         return null;
+    }
+
+    /*
+    * Approach 2
+    * */
+    int ans = 0;
+    int p =0;
+    public int kthSmallest2(Node root, int k) {
+        p=k;
+        inOrder(root);
+        return ans;
+    }
+
+    private void inOrder(Node root) {
+        if(root==null) return;
+        inOrder(root.left);
+        if(p==1) {
+            ans = root.data;
+        }
+        p=p-1;
+        inOrder(root.right);
     }
 
 }

@@ -14,7 +14,7 @@ public class DiGraph {
             vertex.add(new ArrayList<>());
     }
 
-    // Connection first to second because it is a diagraph
+    // Connection first to second because it is a digraph
     public void connect(int first, int second) {
         vertex.get(first).add(second);
     }
@@ -60,8 +60,8 @@ public class DiGraph {
 
     public void breadthFirstTraversal() {
         boolean[] visited = new boolean[n];
-        for(int v = 0; v < n; v++) {
-            if(!visited[v]) {
+        for (int v = 0; v < n; v++) {
+            if (!visited[v]) {
                 bfsHelper(v, visited);
             }
         }
@@ -93,8 +93,8 @@ public class DiGraph {
     public int numberOfConnectedComponentsDfs() {
         int numComponents = 0;
         boolean[] visited = new boolean[n];
-        for(int v = 0; v < n; v++) {
-            if(!visited[v]) {
+        for (int v = 0; v < n; v++) {
+            if (!visited[v]) {
                 dfsRecursiveHelper(v, visited);
                 numComponents++;
             }
@@ -105,8 +105,8 @@ public class DiGraph {
     public int numberOfConnectedComponentsBfs() {
         int numComponents = 0;
         boolean visited[] = new boolean[n];
-        for(int v = 0; v < n; v++) {
-            if(!visited[v]) {
+        for (int v = 0; v < n; v++) {
+            if (!visited[v]) {
                 bfsHelper(v, visited);
                 numComponents++;
             }
@@ -122,15 +122,15 @@ public class DiGraph {
         diGraph.connect(2, 3);
         diGraph.connect(3, 4);
         diGraph.connect(3, 5);
-        diGraph.connect(6,7);
+        diGraph.connect(6, 7);
 
-        diGraph.dfsRecursive(0);
-        diGraph.dfsIterative(0);
+        System.out.println("Components count using dfs = " + diGraph.numberOfConnectedComponentsDfs());
+        //diGraph.dfsRecursive(0);
+
+        /*diGraph.dfsIterative(0);
         System.out.println("-----BFS----");
         diGraph.bfs(0);
         System.out.println("Components count using dfs = " + diGraph.numberOfConnectedComponentsDfs());
-        System.out.println("Components count using bfs = " + diGraph.numberOfConnectedComponentsBfs());
+        System.out.println("Components count using bfs = " + diGraph.numberOfConnectedComponentsBfs());*/
     }
-
-
 }

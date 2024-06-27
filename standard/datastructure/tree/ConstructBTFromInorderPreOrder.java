@@ -15,6 +15,11 @@ public class ConstructBTFromInorderPreOrder {
         int rootIndexInorder = getIndex(inorder, root.data, inorderStart, inorderEnd);
         /*
         * With indexes of inorder of next sub-problem and hence its length, we can find length of preorder of next sub-problem as well.
+        *
+        * pre: vLR; in: LvR
+        * v is root
+        * left tree preorder will be (preStart+1,preStart+length(L))
+        * and right tree preorder will be(preStart+length(L)+1,preEnd)
         * */
         int len = rootIndexInorder - inorderStart;
         root.left = buildTreeHelper(preorder, inorder, preorderStart + 1, preorderStart + len, inorderStart, rootIndexInorder - 1);

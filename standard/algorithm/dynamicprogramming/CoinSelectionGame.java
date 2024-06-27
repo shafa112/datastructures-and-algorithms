@@ -17,7 +17,7 @@ public class CoinSelectionGame {
 
     public static int countMaximum(int[] coins) {
         int dp[][]= new int[coins.length][coins.length];
-        for (int i = 0; i < coins.length; i++) Arrays.fill(dp[i],-1);
+        for (int i = 0; i < coins.length; i++) Arrays.fill(dp[i], -1);
         return countMaximum(coins,0,coins.length-1,dp);
     }
 

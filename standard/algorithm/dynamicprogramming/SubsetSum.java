@@ -20,6 +20,7 @@ public class SubsetSum {
     }
 
     // Complexity: O(n*sum)
+    //dp with recursion
     private static Boolean isSubsetDP(int[] a,int n, int sum,Boolean dp[][]) {
         if(sum == 0) return true;
         if(n < 0 || sum < 0) return false;

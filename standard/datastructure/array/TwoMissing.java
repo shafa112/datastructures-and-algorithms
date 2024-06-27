@@ -22,6 +22,8 @@ public class TwoMissing {
         System.out.println(Arrays.toString(twoMissing(a)));
     }
 
+    //discuss method with chotean
+
     private static int[] twoMissing(int[] a) {
         int N = a.length+2;
         int sumN = N*(N+1)/2;

@@ -6,7 +6,7 @@ import java.util.Stack;
 
 // https://www.coursera.org/learn/algorithms-part2/lecture/RAMNS/topological-sort
 
-// Note: It works digraph with no cycle i.e. directed acyclic graph
+// Note: It works digraph with no cycle i.e. directed acyclic graph (DAG)
 public class TopologicalOrderDigraph {
 
     public static Iterable<Integer> topologicalOrder(DiGraph graph) {

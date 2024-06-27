@@ -28,8 +28,6 @@ public class ValidParenthesis {
             ++i;
         }
         if(!s.isEmpty()) return false;
-
-
         return true;
     }
 

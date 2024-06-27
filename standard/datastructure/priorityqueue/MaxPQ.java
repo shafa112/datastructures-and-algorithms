@@ -2,6 +2,10 @@ package datastructure.priorityqueue;
 
 
 // https://www.coursera.org/learn/algorithms-part1/lecture/Uzwy6/binary-heaps
+//complete binary tree: perfectly balanced except for last level
+//Binary heap: Array representation of heap-ordered complete binary tree
+//heap-ordered binary tree: parent's value no smaller than any of its children
+//PQ implementation using binary heap datastructure
 public class MaxPQ<Key extends Comparable<Key>> {
 
     Key array[];
@@ -58,6 +62,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
         }
     }
 
+    // 0-indexed array
     private int getFirstChildIndex(int parentIndex) {
         int childIndex = 2 * parentIndex + 1;
         //if parent is leaf Node
