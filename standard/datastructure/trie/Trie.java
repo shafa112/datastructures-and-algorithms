@@ -29,7 +29,7 @@ public class Trie {
             if(temp.children[index]==null) return false;
             temp = temp.children[index];
         }
-        if (temp.data != null && temp.data.equals(key)) return true;
+        if (temp.data != null) return true;
         return false;
     }
 
