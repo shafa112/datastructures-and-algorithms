@@ -4,6 +4,8 @@ package datastructure.trie;
 // https://leetcode.com/problems/prefix-and-suffix-search/
 //lets say you inserted words, eg. apple ==> "apple{apple", "pple{apple",
 // "ple{apple", "le{apple", "e{apple", "{apple"
+//then search in trie -> suffix+"{"+prefix
+//{ is next to z in ascii character order so we make children[27] size, where index 26 represents '{'
 public class TriePrefixSuffixSearch {
 
     Trie trie;
