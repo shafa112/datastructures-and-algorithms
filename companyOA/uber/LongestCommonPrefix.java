@@ -4,8 +4,13 @@ import datastructure.trie.WordDictionary;
 
 import java.util.ArrayList;
 
+/*
+* Given two arrays of numbers, firstArray and secondArray.
+* Return the length of the longest common prefix (LCP)
+* between any pair of numbers from different arrays or o if no common prefix exists.
+*
+*/
 public class LongestCommonPrefix {
-
     TrieNode root;
 
     public LongestCommonPrefix() {
@@ -62,6 +67,9 @@ public class LongestCommonPrefix {
         public int data;
         public TrieNode[] children = new TrieNode[10];
     }
+
+
+
 
     public static void main(String[] args) {
         LongestCommonPrefix l = new LongestCommonPrefix();
