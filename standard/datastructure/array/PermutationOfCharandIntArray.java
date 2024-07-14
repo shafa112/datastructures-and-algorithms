@@ -1,5 +1,6 @@
 package datastructure.array;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,10 +16,11 @@ public class PermutationOfCharandIntArray {
         System.out.println(charPermutations);
 
 
-        int[] a = {1,2,3};
-        List<Integer> l1 = new LinkedList<>();
-        getPermutationsIntArray(a,l1,visited);
-        System.out.println(intPermutations);
+//        int[] a = {1,2,3};
+//        List<Integer> l1 = new LinkedList<>();
+//        getPermutationsIntArray(a,l1,visited);
+//        System.out.println(intPermutations);
+
     }
 
 

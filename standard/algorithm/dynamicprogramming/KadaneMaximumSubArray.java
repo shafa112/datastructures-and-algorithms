@@ -19,10 +19,10 @@ public class KadaneMaximumSubArray {
         inc[0] = a[0];
         exc[0] = Integer.MIN_VALUE;
         for (int i = 1; i < n; i++) {
-            inc[i] = Math.max(a[i], a[i]+inc[i-1]);
-            exc[i] = Math.max(inc[i-1], exc[i-1]);
+            inc[i] = Math.max(a[i], a[i] + inc[i - 1]);
+            exc[i] = Math.max(inc[i - 1], exc[i - 1]);
         }
-        return Math.max(inc[n-1], exc[n-1]);
+        return Math.max(inc[n - 1], exc[n - 1]);
     }
 
     // Complexity: O(n)
@@ -33,7 +33,7 @@ public class KadaneMaximumSubArray {
         int exc = Integer.MIN_VALUE;
         for (int i = 1; i < n; i++) {
             int prevInclude = inc;
-            inc = Math.max(a[i], a[i]+inc);
+            inc = Math.max(a[i], a[i] + inc);
             exc = Math.max(prevInclude, exc);
         }
         return Math.max(inc, exc);
@@ -41,16 +41,16 @@ public class KadaneMaximumSubArray {
 
     // Complexity: O(n)
     // Space: O(n)
-    static int dpMaxSubArraySum(int a[]){
+    static int dpMaxSubArraySum(int a[]) {
         int n = a.length;
-        int dp[] =  new int[n];
+        int dp[] = new int[n];
         dp[0] = a[0];
         int sum = 0;
-        for(int i = 1; i < n; i++){
-            sum = Math.max(a[i], a[i]+sum);
-            dp[i] = Math.max(dp[i-1], sum);
+        for (int i = 1; i < n; i++) {
+            sum = Math.max(a[i], a[i] + sum);
+            dp[i] = Math.max(dp[i - 1], sum);
         }
-        return dp[n-1];
+        return dp[n - 1];
     }
 
 }

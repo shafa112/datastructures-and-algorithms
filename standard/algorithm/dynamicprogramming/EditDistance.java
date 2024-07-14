@@ -1,11 +1,9 @@
 package algorithm.dynamicprogramming;
 
-
-import java.util.Arrays;
-
 // Levenshtein Distance ("Edit Distance")
 // ref: https://youtu.be/Dd_NgYVOdLk
 public class EditDistance {
+
 
     /*
      * Note: Consider below ith string is getting converted to jth string
@@ -28,29 +26,88 @@ public class EditDistance {
      * r : replacement cost
      * i : insertion cost
      */
-    static int editDistance(String first,String second){
-        int m  = first.length();
-        int n = second.length();
-        int e[][] = new int[m+1][n+1];
-        //first col initialization where second string is empty
-        for(int i = 1; i<=m ; i++) e[i][0]=i;
-        // first row initialization where first string is empty
-        for(int j = 1; j<=n ; j++) e[0][j]=j;
+    /*
+    * recursive
+    *
+    * */
+    public int minDistance(String s1, String s2) {
+        return minDistance(s1,s1.length()-1,s2,s2.length()-1);
+    }
 
-        for(int i = 1; i <= m ; i++){
-            for(int j = 1; j <= n ;j++){
-                if(first.charAt(i-1)!=second.charAt(j-1)){
-                    e[i][j]=min(e[i-1][j], e[i][j-1], e[i-1][j-1])+1;
-                }else{
-                    e[i][j]=min(e[i-1][j]+1, e[i][j-1]+1, e[i-1][j-1]);
-                }
-            }
+    public int minDistance(String s1, int n1, String s2, int n2) {
+        if(n1<0) return n2+1;
+        if(n2<0) return n1+1;
+        if(s1.charAt(n1) == s2.charAt(n2)) {
+            return minDistance(s1, n1-1, s2, n2-1);
+        } else {
+            return min(
+                    1 + minDistance(s1,n1,s2,n2-1), //insert
+                        1 + minDistance(s1, n1-1,s2,n2), //delete
+                        1+ minDistance(s1,n1-1,s2,n2-1) //replace
+            );
+        }
+    }
+
+    public int minDistanceDP(String s1, String s2) {
+        int[][] dp = new int[s1.length()][s2.length()];
+        return minDistanceDP(s1,s1.length()-1,s2,s2.length()-1,dp);
+    }
+
+    public int minDistanceDP(String s1, int n1, String s2, int n2, int[][] dp) {
+        if(n1<0) return n2+1;
+        if(n2<0) return n1+1;
+        if(dp[n1][n2]!=0) return dp[n1][n2];
+        if(s1.charAt(n1) == s2.charAt(n2)) {
+            dp[n1][n2] = minDistanceDP(s1, n1-1, s2, n2-1, dp);
+        } else {
+            dp[n1][n2]=  min(
+                    1 + minDistanceDP(s1,n1,s2,n2-1, dp), //insert
+                    1 + minDistanceDP(s1, n1-1,s2,n2, dp), //delete
+                    1+ minDistanceDP(s1,n1-1,s2,n2-1, dp) //replace
+            );
+        }
+        return dp[n1][n2];
+    }
+
+    /*
+    * Iterative
+    *
+    * */
+    public int minDistanceIterative(String s1, String s2) {
+        int n1 = s1.length();
+        int n2 = s2.length();
+        int[][] dp = new int[n1+1][n2+1];
+
+        // first row initialization where first string is empty
+        for (int i = 1; i <= n2; i++) {
+            dp[0][i] = i;
         }
 
-        return e[m][n];
+        //first col initialization where second string is empty
+        for (int i = 1; i <= n1; i++) {
+            dp[i][0] = i;
+        }
+
+        for (int i = 1; i <= n1; i++) {
+            for (int j = 1; j <= n2; j++) {
+                if(s1.charAt(i-1) == s2.charAt(j-1)) dp[i][j] = dp[i-1][j-1];
+                else dp[i][j] = min (1 + dp[i][j-1], 1 + dp[i-1][j], 1 + dp[i-1][j-1]);
+            }
+        }
+        return dp[n1][n2];
     }
 
-    static int min(int... x) {
-        return Arrays.stream(x).min().getAsInt();
+
+
+    public int min(int...a) {
+        int min = a[0];
+        for (int i = 1; i<a.length; ++i) {
+            min = Math.min(min,a[i]);
+        }
+        return min;
     }
+
+    /*static int min(int... x) {
+        return Arrays.stream(x).min().getAsInt();
+    }*/
 }

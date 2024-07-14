@@ -1,6 +1,5 @@
 package datastructure.graph;
 
-
 import java.util.Arrays;
 
 public class UndirectedGraphCycle {

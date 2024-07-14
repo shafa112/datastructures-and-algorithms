@@ -6,7 +6,7 @@ import java.util.TreeSet;
 /*
 * Using TreeSet class of Java
 * Set<Integer> s = new TreeSet<> //On doing this higher method was not accessible through s
-* TreeSet<Integer> s = new TreeSet<> //On doing this higher method was accessible through s
+* TreeSet<Integer> s = new TreeSet<> //On doing this higher method is accessible.
 *
 *
 * Higher method of TreeSet returns upperbound for the element in the TreeSet or it returns null

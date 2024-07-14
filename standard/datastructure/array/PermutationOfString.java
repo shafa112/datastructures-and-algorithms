@@ -8,7 +8,7 @@ import java.util.Map;
 public class PermutationOfString {
 
     public static void main(String[] args) {
-        String input = "abc";
+        String input = "aac";
         List<String> l = new ArrayList<>();
         permute(input, "", l);
         System.out.println("permutations without backtrack: " + l);
