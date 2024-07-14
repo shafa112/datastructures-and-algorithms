@@ -33,8 +33,8 @@ public class PrintPowerSet {
     public static void main (String[] args)
     {
         char[] set = {'a', 'b', 'c'};
-        //printPowerSet(set, 3);
-        System.out.println(AllPossibleStrings("AA"));
+        printPowerSet(set, 3);
+        //System.out.println(AllPossibleStrings("AA"));
     }
 
 

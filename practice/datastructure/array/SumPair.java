@@ -38,4 +38,15 @@ public class SumPair {
         }
         return false;
     }
+
+    public static int[] twoSum(int [] a, int sum) {
+        Arrays.sort(a);
+        int i = 0, j = a.length-1;
+        while (i<j) {
+            if(a[i]+a[j]==sum) return new int[]{i,j};
+            else if(a[i]+a[j] >sum) --j;
+            else if(a[i]+a[j] < sum) ++i;
+        }
+        return new int[]{0,0};
+    }
 }

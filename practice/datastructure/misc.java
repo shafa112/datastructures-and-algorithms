@@ -6,6 +6,8 @@ import java.util.Map;
 public class misc {
 
     public static void main(String[] args) {
+        String str1 = "cat";
+        String str2 = "tca";
         Map<Integer,Student> map = new HashMap<>();
         map.put(1,new Student("shafa",1));
         map.put(2, new Student("shebi",2));

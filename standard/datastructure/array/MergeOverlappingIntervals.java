@@ -7,13 +7,13 @@ public class MergeOverlappingIntervals {
     public static void main(String[] args) {
         int[][] a = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
         int[][] ans1 = mergeOverlappingInterval(a);
-        int[][] ans2 = mergeOverlappingInterval(a);
+        int[][] ans2 = merge(a);
         for (int[] temp: ans2) {
             System.out.print(Arrays.toString(temp)+" ");
         }
     }
 
-    public int[][] merge(int[][] intervals) {
+    public static int[][] merge(int[][] intervals) {
         Comparator<int[]> comparator = (a,b) -> a[0] - b[0];
         Arrays.sort(intervals, comparator);
         List<int[]> result = new ArrayList<>();
