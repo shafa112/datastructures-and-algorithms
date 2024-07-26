@@ -1,7 +1,6 @@
-package datastructure.hashmap;
+package datastructure.map.hashmap;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class MyHashMapTest {
 

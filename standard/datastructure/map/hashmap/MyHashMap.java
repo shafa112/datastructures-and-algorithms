@@ -1,4 +1,4 @@
-package datastructure.hashmap;
+package datastructure.map.hashmap;
 
 import java.util.ArrayList;
 import java.util.List;

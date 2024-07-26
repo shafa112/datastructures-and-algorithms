@@ -1,4 +1,4 @@
-package datastructure.map;
+package datastructure.map.lrucache.implementation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
