@@ -8,27 +8,16 @@ public class BinarySearchTree {
     Rewrite and use the root variable above. Think external party is using this data structure
      */
     public Node insert(Node root, int key) {
-        if (root == null) return new Node(key);
+        if(root==null) return new Node(key);
+        Node current = root;
         Node prev = root;
-        Node next = root;
-        while (next != null) {
-            while (next != null && key < next.data) {
-                prev = next;
-                next = next.left;
-            }
-            while (next != null && key > next.data) {
-                prev = next;
-                next = next.right;
-            }
+        while(current!=null) {
+            prev = current;
+            if(current.data > key) current = current.left;
+            else current = current.right;
         }
-        Node n = new Node(key);
-        if (next == null) {
-            if (prev != null && key < prev.data) prev.left = n;
-            if (prev != null && key > prev.data) prev.right = n;
-        }
-        if (next != null && key < next.data) next.left = n;
-        if (next != null && key > next.data) next.right = n;
-
+        if(prev.data > key) prev.left = new Node(key);
+        else prev.right = new Node(key);
         return root;
     }
 
@@ -49,8 +38,6 @@ public class BinarySearchTree {
         return isBst(root.left, min, root.data) && isBst(root.right, root.data, max);
     }
 
-
-    // TODO: Iterative
     public Node search(Node root, int key) {
         if (root == null) return null;
         if (root.data == key) return root;

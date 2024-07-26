@@ -107,7 +107,7 @@ public class TreeView {
             HorizontalDistance h = q.remove();
             Node node = h.node;
             int hd = h.hd;
-            if(m.containsKey(hd)) m.put(hd,node.data);
+            if(!m.containsKey(hd)) m.put(hd,node.data);
             if(node.left!=null) q.add(new HorizontalDistance(node.left,hd-1));
             if(node.right!=null) q.add(new HorizontalDistance(node.right,hd+1));
         }

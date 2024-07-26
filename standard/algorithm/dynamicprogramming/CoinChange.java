@@ -29,7 +29,7 @@ public class CoinChange {
         return dp[n][amount] = coinCount;
     }
 
-    // M(j)=Min(M(j-coins[i]))+1 , for all i and j-coin[i]>=0
+    // M(j)=Min(M(j-coins[i]))+1, for all i and j-coin[i]>=0
     // j represents amount
     // In above formula, we are trying the amount with all the coins if that coin is lesser or equal than amount
     public static int coinChangeIterativeDifferentApproach(int[] coins, int amount) {

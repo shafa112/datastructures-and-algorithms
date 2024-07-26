@@ -83,7 +83,6 @@ public class BinaryTree {
     }
 
     public void levelOrderNewLine(Node root) {
-
         Queue<Node> q = new LinkedList<>();
         if (root == null) return;
         q.add(root);

@@ -14,7 +14,7 @@ public class MaxSlidingWindow {
 
 
     // int[] nums = {-7,-8,7,5,7,1,6,0};
-    //k+i-1
+    // k+i-1
     public static int[] maxSlidingWindow4(int[] a, int k) {
         if(k >= a.length) {
             return new int[]{Arrays.stream(a).max().getAsInt()};
