@@ -8,7 +8,6 @@ import java.io.IOException;
 
 public class OpenAIClient {
     private static final String API_KEY = "";
-    //private static final String ENDPOINT = "https://api.openai.com/v1/chat/completions";
 
 
     public static void main(String[] args) throws IOException {
@@ -38,7 +37,7 @@ public class OpenAIClient {
         );
 
         Request request = new Request.Builder()
-                .url("https://api.openai.com/v1/chat/completions")
+                .url("abc")
                 .header("Authorization", "Bearer " + API_KEY)
                 .post(body)
                 .build();
