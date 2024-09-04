@@ -25,7 +25,7 @@ public class MaxSlidingWindow {
         // i represents current element we are processing
         for (int i = 0; i < a.length; i++) {
             if(!dq.isEmpty() && dq.peekFirst() == i-k) dq.removeFirst();
-            while(!dq.isEmpty() && a[i]>=a[dq.peekLast()] ) dq.removeLast();
+            while(!dq.isEmpty() && a[i] >= a[dq.peekLast()] ) dq.removeLast();
             dq.addLast(i);
             if(i >= k-1) {
                 ans[r++] = a[dq.peekFirst()];

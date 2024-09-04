@@ -1,11 +1,15 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class misc {
 
     public static void main(String[] args) {
+        int count = 15;
+        char c = (char)(count+'0');
+        System.out.println(c);
+
+
+
+
         String str1 = "cat";
         String str2 = "tca";
         Map<Integer,Student> map = new HashMap<>();
@@ -21,6 +25,10 @@ public class misc {
         l.add("shireen");
         l.add("shadab");
         System.out.println(l);
+
+        char[] test = {'a','b','c'};
+        String str = new String(test);
+        System.out.println("thisssssss :::: "+ str);
     }
 }
 

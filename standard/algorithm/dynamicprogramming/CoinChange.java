@@ -3,7 +3,7 @@ package algorithm.dynamicprogramming;
 public class CoinChange {
 
     // int coins[]
-    // minCoins(n, amount) = Min(minCoins(n-1, amount), 1+ minCoins(n, amount-coin[n));
+    // minCoins(n, amount) = Min(minCoins(n-1, amount), 1 + minCoins(n, amount-coin[n));
     public static int coinChange(int[] coins, int amount) {
         Integer dp[][] = new Integer[coins.length][amount + 1];
         return minCoins(coins, coins.length - 1, amount, dp);

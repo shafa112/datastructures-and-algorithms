@@ -115,16 +115,24 @@ public class DiGraph {
     }
 
     public static void main(String[] args) {
-        DiGraph diGraph = new DiGraph(9);
+        /*DiGraph diGraph = new DiGraph(9);
         diGraph.connect(0, 2);
         diGraph.connect(0, 1);
         diGraph.connect(1, 4);
         diGraph.connect(2, 3);
         diGraph.connect(3, 4);
         diGraph.connect(3, 5);
-        diGraph.connect(6, 7);
+        diGraph.connect(6, 7);*/
 
-        System.out.println("Components count using dfs = " + diGraph.numberOfConnectedComponentsDfs());
+        DiGraph diGraph1 = new DiGraph(7);
+        diGraph1.connect(1,2);
+        diGraph1.connect(2,4);
+        diGraph1.connect(1,3);
+        diGraph1.connect(3,5);
+        diGraph1.connect(5,6);
+        diGraph1.dfsIterative(1);
+
+        //System.out.println("Components count using dfs = " + diGraph.numberOfConnectedComponentsDfs());
         //diGraph.dfsRecursive(0);
 
         /*diGraph.dfsIterative(0);

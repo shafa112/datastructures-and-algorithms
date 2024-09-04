@@ -21,7 +21,7 @@ public class MergeKLists {
         PriorityQueue<ListNode> queue= new PriorityQueue<ListNode>(lists.size(),new Comparator<ListNode>(){
             @Override
             public int compare(ListNode o1,ListNode o2){
-                if (o1.val<o2.val)
+                if (o1.val < o2.val)
                     return -1;
                 else if (o1.val==o2.val)
                     return 0;

@@ -6,7 +6,7 @@ public class CourseSchedule1_DirectedGraphCycle {
         int n = g.n;
         boolean[] visited = new boolean[n];
         boolean[] visitedInCurrentPath = new boolean[n];
-        for(int i = 0; i<n; ++i){
+        for(int i = 0; i < n; ++i) {
             if (!visited[i]) {
                 boolean hasCycle = dfs(g, i, visited, visitedInCurrentPath);
                 if (hasCycle) {
@@ -26,7 +26,7 @@ public class CourseSchedule1_DirectedGraphCycle {
                 if(hasCycle) return true;
             }
             else {
-                if(visitedInCurrentPath[u])return true;
+                if(visitedInCurrentPath[u]) return true;
             }
         }
         visitedInCurrentPath[v] = false;
