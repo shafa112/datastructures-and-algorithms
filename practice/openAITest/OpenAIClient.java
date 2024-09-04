@@ -7,8 +7,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 public class OpenAIClient {
-    // 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
-    private static final String API_KEY = "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";
+    private static final String API_KEY = "";
     //private static final String ENDPOINT = "https://api.openai.com/v1/chat/completions";
 
 
