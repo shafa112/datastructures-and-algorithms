@@ -33,7 +33,6 @@ public class WordDictionary {
 //        System.out.println("Searching for key = " + key);
         TrieNode temp = root;
         for (char ch : key.toCharArray()) {
-
             if(ch == '.') {
                 for(int j = 0; j < 26; j++) {
                     if(temp.children[j] != null) {

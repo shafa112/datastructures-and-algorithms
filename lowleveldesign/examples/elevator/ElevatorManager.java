@@ -1,7 +1,7 @@
 package examples.elevator;
 
 /**
- * Ele
+ *
  */
 public class ElevatorManager {
 

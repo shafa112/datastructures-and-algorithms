@@ -42,6 +42,9 @@ public class LongestValidParentheses {
     * when they are equal we calculate length
     * If closing bracket is more than open then we set open and left bracket count to 0
     *
+    * Then we travel right to left and do same
+    *
+    *
     * Time : O(n), space: O(1)
     * */
     public static int longestValidParenthesis(String str) {

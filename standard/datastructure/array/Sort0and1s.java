@@ -54,7 +54,7 @@ public class Sort0and1s {
     private static void sort1s2s(int[] a, int l) {
         int left =l, right=a.length-1;
         while(left<right) {
-            while(a[left]==1 && left<right) ++left;
+            while((a[left]==1 || a[left]==0) && left<right) ++left;
             while(a[right]==2 && left<right) --right;
             if(left<right) {
                 int temp = a[left];

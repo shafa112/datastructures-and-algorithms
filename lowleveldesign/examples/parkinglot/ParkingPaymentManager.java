@@ -7,7 +7,6 @@ public class ParkingPaymentManager {
     }
 
     void markPaymentComplete(String ticketId) {
-
     }
 
     void pay(String ticketId, double amount, PaymentData paymentData) {
@@ -48,7 +47,6 @@ class CardPaymentHandler implements PaymentHandler {
     public void pay(PaymentData paymentData, double amount) {
         CardData cardData = (CardData) paymentData;
         // deduct amount from card
-
     }
 }
 
