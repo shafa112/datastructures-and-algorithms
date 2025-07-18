@@ -19,7 +19,7 @@ public class LongestPalindromicSubsequence {
 
     static int solve(String s, int i, int j, int dp[][]) {
         if(i>j) return 0;
-        if(i==j)return dp[i][j] = 1;
+        if(i==j) return dp[i][j] = 1;
         if(dp[i][j] != -1) return dp[i][j];
         if(s.charAt(i) == s.charAt(j)) {
             return dp[i][j] = solve(s, i+1, j-1,dp)+2;

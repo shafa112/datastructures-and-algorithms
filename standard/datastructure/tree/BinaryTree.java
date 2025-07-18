@@ -293,7 +293,12 @@ public class BinaryTree {
         return newRoot;
     }
 
-    public void mirror(Node root) {
+    public Node mirror(Node root) {
+        if(root==null) return null;
+        Node newRoot = new Node(root.data);
+        newRoot.left = mirror(root.right);
+        newRoot.right = mirror(root.left);
+        return newRoot;
     }
 
     public boolean hasPathSum(Node root, int sum) {

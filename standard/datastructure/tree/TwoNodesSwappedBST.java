@@ -20,7 +20,7 @@ public class TwoNodesSwappedBST {
         if(root==null)
             return ;
         inorder(root.left);
-        if(prev!=null&&root.data<prev.data){
+        if(prev!=null && root.data<prev.data){
             if(first==null)
                 first=prev;
             second=root;

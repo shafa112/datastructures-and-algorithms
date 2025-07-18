@@ -118,7 +118,7 @@ public class LongestIncreasingSubsequence {
     /*
      * DP with Recursion:
      * Time: O(n^2)
-     * Space: stack space, O(n) + dp array space, O(n^2)
+     * Space: rec stack space, O(n) + dp array space, O(n^2)
      * */
     public int lengthOfLIS2(int[] nums) {
         int n = nums.length;

@@ -30,7 +30,7 @@ public class UnionFind {
     }
 
     public int rootInPathCompression(int i){
-        while(i!=parent[i]){
+        while(i!= parent[i]){
             parent[i]=parent[parent[i]];
             i = parent[i];
         }

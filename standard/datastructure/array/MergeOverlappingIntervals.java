@@ -6,16 +6,35 @@ public class MergeOverlappingIntervals {
 
     public static void main(String[] args) {
         int[][] a = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
-        int[][] ans1 = mergeOverlappingInterval(a);
-        int[][] ans2 = merge(a);
-        for (int[] temp: ans2) {
+        //int[][] ans1 = mergeOverlappingInterval(a);
+        //int[][] ans2 = merge(a);
+        /*for (int[] temp: ans2) {
             System.out.print(Arrays.toString(temp)+" ");
+        }*/
+        ArrayList<Interval> input = new ArrayList<>();
+        for (int[] b : a) {
+            input.add(new Interval(b[0],b[1]));
         }
+
+        merge(input);
+        System.out.println("ans");
+        for (Interval interval: input) {
+            System.out.println("start: "+interval.start+", end: "+ interval.end);
+        }
+
+
     }
+
+
+
+
 
     public static int[][] merge(int[][] intervals) {
         Comparator<int[]> comparator = (a,b) -> a[0] - b[0];
         Arrays.sort(intervals, comparator);
+
+
+
         List<int[]> result = new ArrayList<>();
         int newInterval[] = intervals[0];
         result.add(newInterval);
@@ -72,4 +91,31 @@ public class MergeOverlappingIntervals {
         return ans;
     }
 
+    public static ArrayList<Interval> merge(ArrayList<Interval> intervals) {
+        Comparator<Interval> byStart = (i1,i2)->(i1.start-i2.start);
+        Collections.sort(intervals,byStart);
+        System.out.println("sort");
+        for (Interval interval: intervals) {
+            System.out.println("start: "+interval.start+", end: "+ interval.end);
+        }
+        ArrayList<Interval> ans = new ArrayList<>();
+        Interval newInterval = intervals.get(0);
+        ans.add(newInterval);
+        for(int i = 1; i < intervals.size(); ++i) {
+            if(intervals.get(i).start <= newInterval.end) {
+                newInterval.end = Math.max(intervals.get(i).end, newInterval.end);
+            } else {
+                newInterval = intervals.get(i);
+                ans.add(newInterval);
+            }
+        }
+        return ans;
+    }
+
+    static class Interval {
+      int start;
+      int end;
+      Interval() { start = 0; end = 0; }
+      Interval(int s, int e) { start = s; end = e; }
+  }
 }

@@ -13,9 +13,61 @@ public class MaximumUnsortedSubArray {
         for (int num : test2) {
             test3.add(num); // Auto-boxing from int to Integer
         }
-        maximumUnsortedSubArray(test3);
+        System.out.println(findUnsortedSubarray(test2));
     }
-        public static ArrayList<Integer> maximumUnsortedSubArray(ArrayList<Integer> A) {
+
+    /* TC: O(n), SC: O(1)
+    * */
+
+    public static int findUnsortedSubarray(int[] nums) {
+        boolean sorted = true;
+        int min = Integer.MAX_VALUE;
+
+        for(int i = 1; i < nums.length; i++) {
+            if(nums[i] < nums[i-1]) {
+                sorted = false;
+            }
+            if(!sorted) {
+                min = Math.min(min,nums[i]);
+            }
+        }
+
+        sorted = true;
+        int max = Integer.MIN_VALUE;
+        for(int i = nums.length-2; i >= 0; i--) {
+            if(nums[i] > nums[i+1]) {
+                sorted = false;
+            }
+            if(!sorted) {
+                max = Math.max(max,nums[i]);
+            }
+        }
+
+        int start = -1;
+        for(int i = 0; i < nums.length; i++) {
+            if(min < nums[i]) {
+                start = i;
+                break;
+            }
+        }
+
+        int end = - 1 ;
+        for( int i = nums.length - 1; i >=0; --i) {
+            if(max > nums[i]) {
+                end = i;
+                break;
+            }
+        }
+
+        if(start > end || start == -1) return 0;
+        return end - start + 1 ;
+    }
+
+    /* TC: O(n)
+        SC : O(n)
+    * */
+
+    public static ArrayList<Integer> findUnsortedSubarray2(ArrayList<Integer> A) {
             int n = A.size();
             int[] mins = new int[n];
             int[] maxs = new int[n];

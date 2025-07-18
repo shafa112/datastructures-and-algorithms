@@ -5,8 +5,9 @@ import java.util.PriorityQueue;
 
 /**
  * Our logic is to maintain two queues one max and one min pq
- * elements of max pq < elements of min pq
- * So we will add into these queue in such a way that either their size is equal or max pq has one extra element
+ * value of elements of max pq are smaller than the value of elements of min pq.
+ * So we will add into these queue in such a way that either their size is equal or max pq has one
+ * extra element
  * Insert operation
  *  - decide based on the input which queue it should go in
  *  - Insert the input in the decided queue.

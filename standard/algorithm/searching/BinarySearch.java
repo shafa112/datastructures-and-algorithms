@@ -1,5 +1,10 @@
 package algorithm.searching;
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Deque;
+
 public class BinarySearch {
 
     public int binarySearchIterative(int[] a, int key) {

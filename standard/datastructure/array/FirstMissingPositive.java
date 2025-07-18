@@ -2,23 +2,34 @@ package datastructure.array;
 
 public class FirstMissingPositive {
     public static int firstMissingPositive(int[] nums) {
-        for(int i = 0; i<nums.length;++i) {
-            if(nums[i]==0 || nums[i]<0) nums[i] = nums.length+1;
-        }
-
-        for(int i = 0; i<nums.length; ++i) {
-            if(1<=Math.abs(nums[i]) && Math.abs(nums[i]) <= nums.length) {
-                if(nums[Math.abs(nums[i])-1]>0)
-                {
-                    nums[Math.abs(nums[i])-1]*=-1;
-                }
+        //check if 1 is present
+        boolean one_present = false;
+        for(int i = 0; i < nums.length; ++i) {
+            if(nums[i]==1) {
+                one_present = true;
+                break;
             }
         }
 
-        for(int i = 0; i<nums.length;++i) {
-            if(nums[i]>0) return i+1;
+        if(!one_present) return 1;
+
+        //replace data <= 0 to 1 and num > nums.length
+        for(int i = 0; i < nums.length; ++i) {
+            if(nums[i] <= 0 || nums[i] > nums.length) nums[i] = 1;
         }
-        return nums.length+1;
+
+        // visit the indices denoted by data and mark them mengative
+        for(int i = 0; i < nums.length; ++i) {
+            int index = Math.abs(nums[i]) - 1;
+            if(nums[index] > 0) nums[index] *= -1;
+        }
+
+        // index with positive data is the missing positive integer
+        for(int i = 0; i < nums.length; ++i) {
+            if(nums[i] > 0) return i + 1;
+        }
+
+        return nums.length + 1;
     }
 
     public static void main(String[] args) {

@@ -40,9 +40,9 @@ public class LongestValidParentheses {
     * Valid parenthesis will consist of equal number of open and closed brackets
     * When we travel from left to right, we keep a count of left and right bracket
     * when they are equal we calculate length
-    * If closing bracket is more than open then we set open and left bracket count to 0
+    * If closing bracket is more than open then we set open and close bracket count to 0
     *
-    * Then we travel right to left and do same
+    * Then we travel right to left and do similar
     *
     *
     * Time : O(n), space: O(1)
@@ -53,9 +53,7 @@ public class LongestValidParentheses {
         int right = 0;
         for (int i = 0; i < str.length(); i++) {
             if(str.charAt(i)=='(') ++left;
-            else {
-                ++right;
-            }
+            else ++right;
             if(right==left) max = Math.max(left+right,max);
             if(right>left) {
                 left=right=0;
@@ -65,10 +63,7 @@ public class LongestValidParentheses {
         left = right = 0;
         for (int i = str.length()-1; i >=0 ; i--) {
             if(str.charAt(i)=='(') ++left;
-            else {
-                ++right;
-            }
-
+            else  ++right;
             if(right==left) max = Math.max(left+right,max);
             if(left>right) {
                 left=right=0;
