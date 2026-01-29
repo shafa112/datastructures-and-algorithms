@@ -11,7 +11,6 @@ public class ArrayConcatenation {
             ans[i] = nums[i];
             ans[n+i] = nums[i];
         }
-        HashSet<Integer> s = new HashSet<>();
         return ans;
     }
 }
